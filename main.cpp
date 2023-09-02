@@ -11,7 +11,9 @@ int main() {
       "Usage: initialize\nInitializes the game with players and territories.";
   helpCommands["turn"] =
       "Usage: turn <player_id>\nProcesses the turn for the specified player.";
+  helpCommands["cls"] = "Usage: clear\nClean Screen.";
   helpCommands["exit"] = "Usage: exit\nTerminates the application.";
+ 
 
   // Welcome
   welcome();
@@ -25,9 +27,12 @@ int main() {
       showHelp(helpCommands);
     } else if (input == "initialize") {
       initializeGame(players);
-    } else if (input.substr(0, 5) == "turn ") {
+    } else if (input.substr(0, 5) == "turn") {
       std::string playerId = input.substr(6);
       processTurn(playerId, players);
+    } else if(input == "cls"){
+      system("cls");
+      welcome();
     } else if (input == "exit") {
       break;
     } else {
