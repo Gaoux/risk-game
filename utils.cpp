@@ -38,8 +38,14 @@ void initializeGame(std::list<Player> &players) {
   }
 
   int numPlayers;
-  std::cout << "Enter the number of players: ";
-  std::cin >> numPlayers;
+  do
+  {
+    std::cout << "Enter the number of players: ";
+    std::cin >> numPlayers;
+    if(numPlayers < 2 || numPlayers > 6)
+      std::cout << BRED << "\tINVALID INPUT" << COLOR_RESET << std::endl << BGRN << "Number of players between 2-6" << COLOR_RESET << std::endl;
+  } while (!(numPlayers >= 2 && numPlayers <= 6));
+  
   std::cin.ignore(); // Clear the buffer
 
   for (int i = 0; i < numPlayers; ++i) {
